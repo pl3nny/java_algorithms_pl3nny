@@ -16,10 +16,36 @@ public class Queue {
         this.nItems = 0; // no elements in array when initializing
     }
 
-    public void insert(long j)
+    public void enqueue(long j)
     {
         rear++;
         queueArray[rear] = j;
         nItems++;
+    }
+
+    public long dequeue()
+    {
+        nItems--;
+        front++;
+        return queueArray[front - 1];
+    }
+
+    public boolean isFull()
+    {
+        if(nItems == maxSize)
+            return true;
+        return false;
+    }
+
+    public boolean isEmpty()
+    {
+        if(nItems == 0)
+            return true;
+        return false;
+    }
+
+    public long peek()
+    {
+        return queueArray[front];
     }
 }
