@@ -20,7 +20,7 @@ public class App {
         System.out.println();
 
         System.out.println("Adding: 10 to the queue");
-        queue.enqueue(10); // shouwl output queue is full
+        queue.enqueue(10); // should output queue is full
         System.out.println();
 
         System.out.println("Dequeuing: " + queue.dequeue());
