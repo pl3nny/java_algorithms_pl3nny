@@ -1,4 +1,4 @@
-package queue;
+package ds.queue;
 
 public class Queue {
 
@@ -8,23 +8,34 @@ public class Queue {
     private int maxSize;
     private long[] queueArray;
     private int rear;
+    private int nitems;
 
     public Queue(int maxSize) {
         this.maxSize = maxSize;
         queueArray = new long[maxSize];
+
+        // fill arrays without using Arrays import 
+        for(int i = 0; i < maxSize; i++)
+        {
+            queueArray[i] = -1;
+        }
+
         rear = 0;
+        nitems = 0;
     }
 
     public void enqueue(int item) {
         if (isEmpty()) {
             queueArray[0] = item;
             rear++;
+            nitems++;
         } else {
             if (isFull())
                 System.out.println("Queue is full...");
             else {
                 queueArray[rear] = item;
                 rear++;
+                nitems++;
             }
         }
     }
@@ -42,20 +53,25 @@ public class Queue {
             }
         }
         rear--;
-        queueArray[rear] = 0;
-        
+        nitems--;
+        queueArray[rear] = -1;
         return dequeued;
     }
 
+    public long peek()
+    {
+        return queueArray[0];
+    }
+
     public boolean isEmpty() {
-        if (queueArray[0] == 0)
+        if (nitems == 0)
             return true;
         else
             return false;
     }
 
     public boolean isFull() {
-        if (queueArray[maxSize - 1] != 0)
+        if (nitems == maxSize)
             return true;
         else
             return false;
@@ -67,6 +83,11 @@ public class Queue {
             System.out.print(queueArray[i] + " ");
         }
         System.out.println("]");
+    }
+
+    public int getItemCount()
+    {
+        return rear;
     }
 
 }

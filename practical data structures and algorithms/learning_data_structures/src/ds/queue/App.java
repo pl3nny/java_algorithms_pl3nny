@@ -1,4 +1,4 @@
-package queue;
+package ds.queue;
 
 public class App {
     public static void main(String[] args) {
@@ -34,5 +34,9 @@ public class App {
         System.out.println("Adding: 15 to the queue");
         queue.enqueue(15);
         queue.showQueue();
+
+        System.out.println("\npeeking front: " + queue.peek());
+
+        System.out.println("\nnumber of itmes in queue: " +queue.getItemCount());
     }
 }
