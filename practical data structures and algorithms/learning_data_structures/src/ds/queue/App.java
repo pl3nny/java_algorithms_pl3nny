@@ -2,7 +2,7 @@ package ds.queue;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("\tQueue Data Structure\n");
+        System.out.println("\n\tQueue Data Structure\n");
 
         Queue queue = new Queue(5);
 
